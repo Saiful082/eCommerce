@@ -1,9 +1,10 @@
 
 
-import { hashPassword } from "../helpers/authHelper.js";
 import userModel from "../models/userModel.js";
+import { hashPassword } from "./../helpers/authHelper.js"
 
 export const registerController = async (req,res) => {
+    console.log(req.body);
     try {
         const {name, email, password, phone, address} = req.body;
         // validations
@@ -31,30 +32,30 @@ export const registerController = async (req,res) => {
             })
         }
         //register user
-        const hashPassword = await hashPassword(password)
+        const hashedPassword = await hashPassword(password);
 
         //save 
-        const user = new userModel({
+        const user = await new userModel({
             name, 
             email, 
             phone, 
             address, 
-            password : hashPassword
-        }).save()
+            password : hashedPassword,
+        }).save();
 
         res.status(201).send({
             success: true,
             message: 'User Register Successfully',
-            user
-        })
+            user,
+        });
 
     } catch (error) {
         console.log(error)
         res.status(500).send({
             success: false,
             message: 'Error in Registeration',
-            error
-        })
+            error,
+        });
         
     }
 };
