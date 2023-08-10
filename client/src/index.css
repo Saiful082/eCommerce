@@ -88,3 +88,15 @@
   color: white;
 }
 /* -------End Page Not found------ */
+
+/* =======Contact Us ======== */
+
+.contactus {
+  margin: 0;
+  padding: 0;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* ------End Contact Us------- */
