@@ -11,25 +11,25 @@ export const registerController = async (req,res) => {
         const {name, email, password, phone, address} = req.body;
         // validations
         if(!name){
-            returnres.send({error: 'Name is Required'})
+            returnres.send({message: 'Name is Required'})
         }
         if(!email){
-            returnres.send({error: 'Email is Required'})
+            returnres.send({message: 'Email is Required'})
         }
         if(!password){
-            returnres.send({error: 'Password is Required'})
+            returnres.send({message: 'Password is Required'})
         }       
         if(!phone){
-            returnres.send({error: 'Phone is Required'})
+            returnres.send({message: 'Phone is Required'})
         }
         if(!address){
-            returnres.send({error: 'Address is Required'})
+            returnres.send({message: 'Address is Required'})
         }
         // check user
         const exisitingUser = await userModel.findOne({email})
         if(exisitingUser){
             return res.status(200).send({
-                success:true,
+                success:false,
                 message: 'Already Register Please Login'
             })
         }
@@ -47,9 +47,9 @@ export const registerController = async (req,res) => {
 
         res.status(201).send({
             success: true,
-            message: 'User Register Successfully',
+            message: "User Register Successfully",
             user,
-        });
+          });
 
     } catch (error) {
         console.log(error)
@@ -122,5 +122,11 @@ export const loginController = async (req, res) => {
 
 // test controller
 export const testController = (req, res) => {
-    res.send('procted router');
+    try {
+        res.send('procted router');
+    } catch (error) {
+        console.log(error);
+        res.send({error});
+        
+    }
 };
