@@ -105,10 +105,12 @@ export const loginController = async (req, res) => {
         message: 'login successfully',
         user: {
         
+            _id: user._id,
             name:user.name,
             email:user.email,
             phone:user.phone,
             address:user.address,
+            role:user.role,
         },
         token,
     });
@@ -156,9 +158,9 @@ export const forgotPasswordController = async(req, res) => {
         console.log(error)
         res.status(500).send({
             message: 'Something went wrong',
-            error
+            error,
 
-        })
+        });
     }
 };
 

@@ -5,7 +5,7 @@ const Dashboard = () => {
     return (
         <Layout title={'Dashboard - eCommerce'}>
 
-        <h1>Dashoard Page</h1>
+        <h1>Dashoard Page</h1> 
         </Layout>
     );
 };
