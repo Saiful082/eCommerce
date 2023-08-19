@@ -6,18 +6,13 @@ import Spinner from "../Spinner";
 
 
 
-
-export default function PrivateRoute(){
-    const [ok, setOk] = useState(false);
-    const [auth, setAuth] = useAuth();
+export default function AdminRoute(){
+    const [ok, setOk] = useState(false)
+    const [auth, setAuth] = useAuth()
 
     useEffect( () => {
         const authCheck = async () => {
-            const res = await axios.get(`/api/v1/auth/admin-auth`, {
-                headers: {
-                    'Authorization': `Bearer`
-                  }
-            });
+            const res = await axios.get('/api/v1/auth/admin-auth');
             if(res.data.ok){
                 setOk(true);
             } else{
@@ -26,5 +21,5 @@ export default function PrivateRoute(){
         }
         if(auth?.token) authCheck();
     }, [auth?.token]);
-    return ok? <Outlet/> : <Spinner path=""/>
+    return ok? <Outlet/> : <Spinner />
 }

@@ -61,7 +61,7 @@ const Header = () => {
               ) : (
                 <>
                   <li className="nav-item dropdown">
-                    <a
+                    <NavLink
                       className="nav-link dropdown-toggle"
                       href="#"
                       role="button"
@@ -69,12 +69,13 @@ const Header = () => {
                       aria-expanded="false"
                     >
                      {auth?.user?.name}
-                    </a>
+                    </NavLink>
                     <ul className="dropdown-menu">
                       <li>
-                        <NavLink to={`/dashboard/${
+                        <NavLink 
+                        to={`/dashboard/${
                           auth?.user?.role === 1 ? 'admin' : 'user'
-                        }`} 
+                        }`}
                         className="dropdown-item">
                          Dashboard
                         </NavLink>

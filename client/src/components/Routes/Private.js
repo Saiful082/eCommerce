@@ -6,7 +6,6 @@ import Spinner from "../Spinner";
 
 
 
-
 export default function PrivateRoute(){
     const [ok, setOk] = useState(false)
     const [auth, setAuth] = useAuth()
@@ -22,5 +21,5 @@ export default function PrivateRoute(){
         }
         if(auth?.token) authCheck();
     }, [auth?.token]);
-    return ok? <Outlet/> : <Spinner/>
+    return ok? <Outlet/> : <Spinner />
 }

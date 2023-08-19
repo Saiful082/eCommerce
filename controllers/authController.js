@@ -24,7 +24,8 @@ export const registerController = async (req,res) => {
         }
         if(!address){
             returnres.send({message: 'Address is Required'})
-        }if(!answer){
+        }
+        if(!answer){
             returnres.send({message: 'Answer is Required'});
         }
         // check user
@@ -110,8 +111,9 @@ export const loginController = async (req, res) => {
             email:user.email,
             phone:user.phone,
             address:user.address,
-            role:user.role,
+            role: user.role,
         },
+
         token,
     });
     
