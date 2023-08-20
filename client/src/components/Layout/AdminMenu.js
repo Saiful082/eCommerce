@@ -9,13 +9,13 @@ const AdminMenu = () => {
           <h3>Admin Panel</h3>
             
             <NavLink to='/dashboard/admin/create/category' className="list-group-item list-group-item-action">
-              A second link item
+              Create Category
             </NavLink>
-            <NavLink to='dashboard/admin/create/product'  className="list-group-item list-group-item-action">
-              A third link item
+            <NavLink to='/dashboard/admin/create/product'  className="list-group-item list-group-item-action">
+              A Create Product
             </NavLink>
-            <NavLink to='dashboard/admin/user' className="list-group-item list-group-item-action">
-              A fourth link item
+            <NavLink to='/dashboard/admin/users' className="list-group-item list-group-item-action">
+              Users
             </NavLink>
            
           </div>
